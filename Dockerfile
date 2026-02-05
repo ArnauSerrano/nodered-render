@@ -1,19 +1,16 @@
-# Imatge oficial de Node-RED
-# Inclou Node.js i tots els nodes core
+# Imatge oficial de Node-RED amb Node.js i nodes core
 FROM nodered/node-red:latest
 
-# Copiem el fitxer package.json al directori /data
-# /data és on Node-RED dins de Render desa fluxos, configuració
-# i nodes addicionals de manera persistent
-COPY package.json /data/package.json
+# Assignem /data com a directori de treball
+WORKDIR /data
 
-# Instal·lem els nodes definits al package.json
-# --unsafe-perm: necessari dins de containers Docker
-# --no-update-notifier i --no-fund: eviten missatges innecessaris
+# Copiem package.json al directori de treball
+COPY package.json ./
+
+# Instal·lem els nodes addicionals
 RUN npm install --unsafe-perm --no-update-notifier --no-fund
 
-# Copiem el flow versionat a GitHub
-# En cada build aquest fitxer sobreescriu /data/flows.json
+# Copiem el flow inicial versionat a GitHub
 COPY flows.json /data/flows.json
 
 # Port per defecte de Node-RED
