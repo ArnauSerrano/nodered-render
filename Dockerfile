@@ -2,10 +2,9 @@
 # Inclou Node.js i tots els nodes core
 FROM nodered/node-red:latest
 
-# Copiem el fitxer package.json al directori /data
-# /data és on Node-RED dins de Render desa fluxos, configuració
-# i nodes addicionals de manera persistent
-COPY package.json /data/package.json
+# Copiem el package.json al directori de treball del contenidor
+WORKDIR /usr/src/node-red
+COPY package.json ./
 
 # Instal·lem els nodes definits al package.json
 # --unsafe-perm: necessari dins de containers Docker
