@@ -1,5 +1,9 @@
 {
   "name": "nodered-render",
   "version": "1.0.0",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "node-red-dashboard": "^3.6.6",
+    "node-red-contrib-modbus": "^5.45.2"
+  }
 }
