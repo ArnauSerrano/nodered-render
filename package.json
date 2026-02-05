@@ -5,6 +5,6 @@
   "dependencies": {
     "node-red-dashboard": "^3.6.6",
     "node-red-contrib-modbus": "^5.45.2",
-    "node-red-contrib-email": "^5.1.0"
+    "node-red-contrib-email": "^0.3.1"
   }
 }
